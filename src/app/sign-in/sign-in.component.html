@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="signInForm">
+                <div class="form-group form-{{langChoice}}">
+                    <select (change)="selectLang()">
+                        <option value="he">Hebrew</option>
+                        <option value="en">English</option>
+                    </select>
+                    <div>
+                        <div>
+                            <img src="../../assets/Images/profile.png">
+                        </div>
+                        <input type="file" class="custom-file-input add-image" id="inputGroupFile04">
+                    </div>
+
+                    <h4>{{translateValues[0][langChoice]}}</h4>
+
+                    <input type="text" placeholder="{{translateValues[1][langChoice]}}"
+                        class="form-control input-{{langChoice}} input-2" id="firstName" formControlName="firstName">
+                    <div class="alert alert-info" *ngIf="!signInForm.controls.firstName.valid">
+                        {{translateValues[6][langChoice]}}
+                    </div>
+
+                    <input type="text" placeholder="{{translateValues[2][langChoice]}}"
+                        class="form-control input-{{langChoice}} input-2" id="lastName" formControlName="lastName">
+                    <div class="alert alert-info" *ngIf="!signInForm.controls.lastName.valid">
+                        {{translateValues[6][langChoice]}}
+                    </div>
+
+                    <input type="text" placeholder="{{translateValues[3][langChoice]}}"
+                        class="form-control input-{{langChoice}} input-2" id="email" formControlName="email">
+                    <ng-container *ngIf="signInForm!.controls!.email!.errors">
+                        <div class="alert alert-info" *ngIf="signInForm!.controls!.email!.errors!.required">{{translateValues[6][langChoice]}}</div>
+                        <div class="alert alert-info" *ngIf="signInForm!.controls!.email!.errors!.email">{{translateValues[7][langChoice]}}</div>
+                    </ng-container>
+
+                    <h5>{{translateValues[5][langChoice]}}</h5>
+                    <input #pas1 type="password" placeholder="{{translateValues[4][langChoice]}}"
+                        class="form-control input-{{langChoice}} input-2" id="password" formControlName="password">
+                        <div *ngIf="langChoice == 1 ">
+                            <img #img1 class="icon1" src="../../assets/Images/view-0.png" (click)="changeType(pas1, img1)">
+                        </div>
+                        <div *ngIf="langChoice == 0 ">
+                            <img #img1 class="icon2" src="../../assets/Images/view-0.png" (click)="changeType(pas1, img1)">
+                        </div>
+
+                    <input #pas2 type="password" placeholder="{{translateValues[5][langChoice]}}"
+                        class="form-control input-{{langChoice}} input-2" id="repeat-password"
+                        formControlName="repeat_password">
+                        <div *ngIf="langChoice == 1 ">
+                            <img #img2 class="icon1" src="../../assets/Images/view-0.png" (click)="changeType(pas2, img2)">
+                          </div>
+                          <div *ngIf="langChoice == 0 ">
+                            <img #img1 class="icon2" src="../../assets/Images/view-0.png" (click)="changeType(pas1, img1)">
+                        </div>
+                       
+
+                    <br />
+                    <button [disabled]="signInForm && !signInForm.valid" class="btn btn-primary"
+                        (click)="addNewUser()">{{translateValues[8][langChoice]}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

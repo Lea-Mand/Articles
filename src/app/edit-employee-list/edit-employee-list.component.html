@@ -1,0 +1,147 @@
+<div class="container body">
+    <h1 dir="rtl" class="title">ניהול עובדים</h1>
+    <ul class="list-group-item">
+        <li class="row list">
+            <div class="col-2"></div>
+            <div class="col-2">תאריך התחלה</div>
+            <div class="col-1">תפקיד</div>
+            <div class="col-1">כתובת</div>
+            <div class="col-1">טלפון</div>
+            <div class="col-2">שם משפחה</div>
+            <div class="col-2">שם פרטי </div>
+            <div class="col-1"></div>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li *ngFor="let index of employees" class="list-group-item">
+            <div class="row list">
+                <div class="col-2">
+                    <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <button (click)="delete(index)" class="btn btn-2"><i class="fa fa-trash"></i></button>
+                    <button class="button-3">
+                        <img class="img-3" (click)="edit(index, content2)" src="../../assets/Images/edit.png">
+                    </button>
+                </div>
+                <div class="col-2">{{index.startDate}} </div>
+                <div class="col-1">{{index.role}} </div>
+                <div class="col-1">{{index.address}} </div>
+                <div class="col-1">{{index.phone}} </div>
+                <div class="col-2"> {{index.lastName}}</div>
+                <div class="col-2">{{index.firstName}} </div>
+                <div class="col-1"><img class="img-1" src='../../assets/Images/Employees/user.jpg'></div>
+            </div>
+        </li>
+    </ul>
+    <br>
+    <button class="btn btn-primary button-2" (click)="open(content)"> הוספת עובד+</button>
+    <br>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="employeeForm" class="form-1" #form1>
+            <h2>הוספת עובד</h2>
+            <div class="form-group">
+                <div>
+                    <img src="../../assets/Images/profile.png">
+                    <input id="Userimg" type="file" class="custom-file-input add-image" id="inputGroupFile04">
+                </div>
+                <input type="text" placeholder="שם פרטי" class="form-control field" id="first_name"
+                    formControlName="firstName">
+                <ng-container *ngIf="employeeForm?.controls?.firstName?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.firstName?.errors?.minlength">שדה זה
+                        חייב להכיל 3 תווים</div>
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.firstName?.errors?.required">שדה חובה
+                    </div>
+                </ng-container>
+                <input type="text" placeholder="שם משפחה" class="form-control field" id="last_name"
+                    formControlName="lastName">
+                <ng-container *ngIf="employeeForm?.controls?.lastName?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.lastName?.errors?.required">שדה חובה
+                    </div>
+                </ng-container>
+                <input type="text" placeholder="כתובת" class="form-control field" id="address"
+                    formControlName="address">
+                <input type="text" placeholder="טלפון נייד" class="form-control field" id="phone"
+                    formControlName="phone">
+                <ng-container *ngIf="employeeForm?.controls?.phone?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.phone?.errors?.minlength">שדה זה חייב
+                        להכיל 9 ספרות</div>
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.phone?.errors?.maxlength">שדה זה חייב
+                        להכיל פחות מ10 ספרות </div>
+                </ng-container>
+                <label for="roll">תפקיד</label>
+                <br />
+                <select class="form-control form-1" id="roll" formControlName="role">
+                    <option value="hr">HR</option>
+                    <option value="Manager">Manager</option>
+                </select>
+                <br>
+                <div class="button-1">
+                    <button class="btn btn-primary" (click)="AddNewEmployee(modal)"
+                        [disabled]="!employeeForm.valid">שמירה</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #content2 let-modal1>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="employeeForm" class="form-1" #form1>
+            <h2>עריכת פרטים</h2>
+            <div class="form-group">
+                <input type="text" placeholder="{{selectedEmployee.firstName}}" class="form-control field"
+                    id="first_name" formControlName="firstName">
+                <ng-container *ngIf="employeeForm?.controls?.firstName?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.firstName?.errors?.minlength">שדה זה
+                        חייב להכיל 3 תווים</div>
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.firstName?.errors?.required">שדה חובה
+                    </div>
+                </ng-container>
+                <input type="text" placeholder="{{selectedEmployee.lastName}}" class="form-control field" id="last_name"
+                    formControlName="lastName">
+                <ng-container *ngIf="employeeForm?.controls?.lastName?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.lastName?.errors?.required">שדה חובה
+                    </div>
+                </ng-container>
+                <input type="text" placeholder="{{selectedEmployee.address}}" class="form-control field" id="address"
+                    formControlName="address">
+                <input type="text" placeholder="{{selectedEmployee.phone}}" class="form-control field" id="phone"
+                    formControlName="phone">
+                <ng-container *ngIf="employeeForm?.controls?.phone?.errors">
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.phone?.errors?.minlength">שדה זה חייב
+                        להכיל 9 ספרות</div>
+                    <div class="alert alert-danger" *ngIf="employeeForm?.controls?.phone?.errors?.maxlength">שדה זה חייב
+                        להכיל פחות מ10 ספרות </div>
+                </ng-container>
+                <label for="roll">תפקיד</label>
+                <br />
+                <select class="form-control form-1" id="roll" formControlName="role">
+                    <option value="hr">HR</option>
+                    <option value="Manager">Manager</option>
+                </select>
+                <br>
+                <div class="button-1">
+                    <button class="btn btn-primary" (click)="updateEmployee(modal1)"
+                        [disabled]="!employeeForm.valid">שמירה</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
