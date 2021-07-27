@@ -1,0 +1,55 @@
+<ul class="list-group">
+
+
+    <div>
+        <div class="tit display-4 bold">{{_article.title}}</div><br />
+
+        <div> <button (click)="open(content)" class="btn btn-dark loop">קפוץ לתגובה</button><button class="up btn btn-dark"
+                (click)="scrollUp()">למעלה</button><button class="dwon btn btn-dark" (click)="scrollDwon()">למטה</button>
+            </div>
+    <div >
+
+            <div class="right title bold underLine">{{_article.content}} <small class="bold smalMargin">תגובות</small></div><br />
+            <br />
+        </div>
+        <br />
+    
+        <br />
+        <br />
+        <li *ngFor="let index of commentsList ; let i = index" class="list-group-item">
+            <div [attr.id]="i" class="row list">
+                <div class="col-10 right bold">{{index.title}}</div>
+                <div class="col-10 right">{{index.content}}</div>
+            </div>
+
+        </li>
+        <br />
+        <br />
+    </div>
+
+</ul>
+
+<ng-template  #content let-modal class="cont">
+    <div class="modal-header " style="text-align: left;">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span class="spn" aria-hidden="true">
+                ×
+            </span>
+        </button>
+        <h3> ...קפוץ לתגובה מספר</h3>
+    </div>
+    <div class="modal-body " [formGroup]="contactForm">
+
+
+
+        <select formControlName="num" (change)="scrollfunc(modal)">
+            <option [ngValue]="null" disabled>0</option>
+            <option *ngFor="let num of options" [ngValue]="num.id">{{num.id}}</option>
+        </select>
+        <br />
+
+    </div>
+
+
+</ng-template>
+

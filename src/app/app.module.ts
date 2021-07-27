@@ -1,33 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { Component, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EditEmployeeListComponent } from './edit-employee-list/edit-employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LogInComponent } from './log-in/log-in.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import {A11yModule} from '@angular/cdk/a11y';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import { CommentsListComponent } from './comments-list/comments-list.component';
 
 const routes: Routes = [
-  { path: 'signin', component: SignInComponent },
-  { path: 'show', component: EmployeesListComponent },
-  { path: 'edit', component: EditEmployeeListComponent },
-  { path: '', component: LogInComponent }
-
+  { path: 'comment', component: CommentsListComponent },
+  { path: '', component: ArticleListComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
-    EmployeesListComponent,
-    EditEmployeeListComponent,
-    LogInComponent
+    ArticleListComponent,
+    CommentsListComponent
   ],
   imports: [
+    ScrollingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -39,8 +39,16 @@ const routes: Routes = [
     NgbModule,
     HttpClientModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule,
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+  
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AppComponent]
 })
 export class AppModule { }

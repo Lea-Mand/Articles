@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "online-store": {
+    "articles": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "./dist/online-store",
+            "outputPath": "./dist/articles",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,12 +66,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "online-store:build",
+            "browserTarget": "articles:build",
             "proxyConfig": "src/proxy.config.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "online-store:build:production",
+              "browserTarget": "articles:build:production",
               "proxyConfig": "src/proxy.config.json"
             }
           }
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "online-store:build"
+            "browserTarget": "articles:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "online-store:serve"
+            "devServerTarget": "articles:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "online-store:serve:production"
+              "devServerTarget": "articles:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "online-store"
+  "defaultProject": "articles"
 }

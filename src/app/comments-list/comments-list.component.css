@@ -1,0 +1,139 @@
+.right {
+    text-align :end;
+}
+h1{
+    text-align: center;
+}
+li{
+    margin: 20px;
+    border-radius: 20px;
+     width:50%;right:-270px;
+}
+.bold{
+  font-weight: bold;
+}
+.smalMargin{
+  margin-right: 10px;
+}
+.underLine{
+  text-decoration: underline;
+}
+.tit{
+    text-align: center;
+    padding: 30px;
+    font-style: oblique;
+    font-size: 40px;
+    border-bottom: 1px solid;
+    color: #333;
+}
+.list-group-item {
+  border: 0.5px solid black;
+}
+.b{
+    background-color:rgb(255, 255, 255);
+    border: none;
+}
+h2{
+    text-align: center;
+}
+.dwon{
+    position: absolute;
+    top: 140px;
+    right: 400px;
+   
+}
+.list-group-item{
+  border-top-width:1px;
+}
+.return{
+  position: absolute;
+  top: 140px;
+  right:693px;
+}
+.up{
+  
+    position: absolute;
+    top: 840px;
+    right: 600px;
+
+}
+.loop{
+    position: absolute;
+    top: 140px;
+    right: 470px;
+ 
+}
+.one{
+    font-size: 30px;
+    /* text-align: center; */
+    right: 400px;
+    position: absolute;
+}
+.title{
+    font-size: 20px;
+    /* text-align: center; */
+    position: absolute;
+    right: 400px;
+    top: 200px;
+}
+h2{
+    font-size: 35px;
+    /* text-align: center; */
+    position: absolute;
+    right: 400px;
+    top: 250px;   
+}
+.popup{
+    border-color: #000; 
+    border-style: groove; 
+    border-width: 2px; 
+    padding: 0px; 
+    background-color: #FFF;
+    font-size: 70%;
+    position: absolute;
+    top: 200px;
+
+}
+/* .close {
+    left: 10px;
+    right: auto;
+  } */
+  .loop1{
+    position: absolute;
+    left: 15px;
+    right: auto;
+    top: 70px;
+    background-color: gray;
+    color: #fdfdfd;
+    border-radius: 20px;
+    border: none;
+  }
+  .spn{
+    position: absolute;
+    left: 15px;
+    color: rgb(74, 76, 78);
+  }
+  .cont{
+    border-radius: 20px;
+  }
+  .example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+  
+  .example-item {
+    height: 50px;
+  }
+  p {
+    font-family: Lato;
+  }
+  
+  .example-item-detail {
+    height: 18px;
+  }
+  
+  .example-alternate {
+    background: rgba(127, 127, 127, 0.3);
+  }
+  

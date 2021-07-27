@@ -1,0 +1,20 @@
+<div *ngIf="showArticle" class="container">
+<h1 class="bold borderButtom">מאמרים</h1>
+<div class="art">
+<ul class="list-group">
+
+    <li *ngFor="let index of articles" class="list-group-item">
+
+        <button class="btn-lg btn-block b" (click)="openComments(index)">
+            <div class="row list">
+                <div class="col-10 right bold">{{index.title}} </div>
+                <div class="col-10 right">{{index.date}} </div>
+            </div>
+        </button>
+    </li>
+</ul>
+</div>
+<br />
+<br />
+</div>
+<app-comments-list *ngIf="showComment" [article]="selectedArticle"></app-comments-list>

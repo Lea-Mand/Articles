@@ -1,0 +1,147 @@
+.right {
+    text-align :end;
+}
+.list-group-item {
+  border: 0.5px solid black;
+}
+.container{
+  border: #3e07be;
+}
+.borderButtom{
+  border-bottom: 1px solid;
+}
+.art{
+  padding: 10px;
+  border-top: #000;
+  border-bottom: #000;
+}
+h1{
+    text-align: center;
+    font-style: oblique;
+    font-size: 60px;
+    padding: 30px;
+}
+.list-group-item {
+  border-radius: 20px !important;
+
+}
+.bold{
+  font-weight: bold;
+}
+.list-group-item{
+  border-top-width:1px;
+}
+li{
+  padding: 10px;
+  margin: 15px;
+    border-radius: 20px;
+     width:50%;right:-270px;
+}
+.b{
+    background-color:rgb(255, 255, 255);
+    border: none;
+}
+h2{
+    text-align: center;
+}
+.dwon{
+    position: absolute;
+    top: 465px;
+    right: 400px;
+    background-color: gray;
+    color: white;
+    border-radius: 20px;
+    border: none; 
+}
+.up{
+    position: absolute;
+    top: 465px;
+    right: 460px;
+    background-color: gray;
+    color: white;
+    border-radius: 20px;
+    border: none;   
+}
+.loop{
+    position: absolute;
+    top: 465px;
+    right: 525px;
+    background-color: gray;
+    color: white;
+    border-radius: 20px;
+    border: none;   
+}
+.one{
+    font-size: 30px;
+    /* text-align: center; */
+    right: 400px;
+    position: absolute;
+}
+.title{
+    font-size: 20px;
+    /* text-align: center; */
+    position: absolute;
+    right: 400px;
+    top: 500px;
+}
+h2{
+    font-size: 35px;
+    /* text-align: center; */
+    position: absolute;
+    right: 400px;
+    top: 530px;   
+}
+.popup{
+    border-color: #000; 
+    border-style: groove; 
+    border-width: 2px; 
+    padding: 0px; 
+    background-color: #FFF;
+    font-size: 70%;
+    position: absolute;
+    top: 200px;
+
+}
+/* .close {
+    left: 10px;
+    right: auto;
+  } */
+  .loop1{
+    position: absolute;
+    left: 15px;
+    right: auto;
+    top: 70px;
+    background-color: gray;
+    color: #fdfdfd;
+    border-radius: 20px;
+    border: none;
+  }
+  .spn{
+    position: absolute;
+    left: 15px;
+    color: rgb(74, 76, 78);
+  }
+  .cont{
+    border-radius: 20px;
+  }
+  .example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+  
+  .example-item {
+    height: 50px;
+  }
+  p {
+    font-family: Lato;
+  }
+  
+  .example-item-detail {
+    height: 18px;
+  }
+  
+  .example-alternate {
+    background: rgba(127, 127, 127, 0.3);
+  }
+  
